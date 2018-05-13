@@ -23,14 +23,14 @@ int main()
         printf("Could not open current directory");
         return 1;
     }
-    else
+
+    while ((de = readdir(dr)) != NULL)
     {
-        while ((de = readdir(dr)) != NULL)
-        {
-            printf("%s\n", de->d_name);
-        }
-        printf("Testing getchar() method\n");
-        closedir(dr);
+        printf("%s\n", de->d_name);
     }
+
+    printf("Closing data directory\n");
+    closedir(dr);
+
     return 0;
 }
