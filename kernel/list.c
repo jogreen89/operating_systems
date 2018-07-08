@@ -51,6 +51,7 @@ struct birthday steve = {
 };
 
 static int simple_init(void) {
+
     struct birthday *iter;
 
     first = kmalloc(sizeof(me), GFP_KERNEL);
@@ -74,6 +75,7 @@ static int simple_init(void) {
     list_add(&fifth->list, &fourth->list);
 
     printk(KERN_ALERT "Birthday Log Kernel Module Loaded.\n");
+
     list_for_each_entry(iter, &head, list)  {
         printk("Birthday: Day = %d month = %d year = %d\n",
         iter->day, iter->month, iter->year);
